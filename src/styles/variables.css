@@ -1,0 +1,86 @@
+:root {
+  /* ========================================
+     PAGODE SUNSET — COLORS
+  ======================================== */
+
+  --color-background: #0B1020;
+  --color-background-light: #11182B;
+  --color-background-card: #151D32;
+
+  --color-purple: #6C2BD9;
+  --color-pink: #E83E8C;
+  --color-orange: #FF6B2C;
+  --color-yellow: #FFC857;
+
+  --color-white: #FFFFFF;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #AEB6C7;
+
+  /* ========================================
+     GRADIENTS
+  ======================================== */
+
+  --gradient-sunset: linear-gradient(
+    135deg,
+    #6C2BD9 0%,
+    #E83E8C 50%,
+    #FF6B2C 100%
+  );
+
+  --gradient-purple-orange: linear-gradient(
+    135deg,
+    #6C2BD9 0%,
+    #FF6B2C 100%
+  );
+
+  --gradient-dark: linear-gradient(
+    180deg,
+    #0B1020 0%,
+    #11182B 100%
+  );
+
+  /* ========================================
+     TYPOGRAPHY
+  ======================================== */
+
+  --font-display: 'Arial Black', Arial, sans-serif;
+  --font-body: Inter, Arial, sans-serif;
+
+  /* ========================================
+     SPACING
+  ======================================== */
+
+  --container-width: 1280px;
+
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 64px;
+  --spacing-2xl: 96px;
+  --spacing-3xl: 128px;
+
+  /* ========================================
+     BORDER RADIUS
+  ======================================== */
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* ========================================
+     TRANSITIONS
+  ======================================== */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  /* ========================================
+     SHADOWS
+  ======================================== */
+
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 60px rgba(108, 43, 217, 0.25);
+}

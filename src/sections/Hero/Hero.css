@@ -1,0 +1,246 @@
+/* =========================================================
+   HERO — Eduardo Henrique
+   A arte de hero-img.jpg já contém a tipografia e a direção
+   visual. O Hero adiciona somente navegação/CTA sem duplicar
+   elementos que já estão dentro da imagem.
+   ========================================================= */
+
+.hero {
+  --hero-ink: #111111;
+  --hero-paper: #e8eceb;
+  --hero-red: #b83b20;
+
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--hero-paper);
+}
+
+/*
+ * A arte ocupa todo o Hero. Em telas largas ela é mantida no centro,
+ * sem deformação. O object-position levemente acima evita cortar a
+ * cabeça do artista quando a janela é mais alta que a arte.
+ */
+.hero__art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  background: var(--hero-paper);
+}
+
+.hero__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center center;
+}
+/*
+ * Pequena proteção para a leitura do conteúdo externo do site.
+ * Não cobre a arte com uma camada escura.
+ */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    transparent 14%,
+    transparent 86%,
+    rgba(0, 0, 0, 0.06)
+  );
+}
+
+/*
+ * Os CTAs ficam fora da fotografia visualmente: um pequeno bloco
+ * editorial no rodapé. Assim eles não atravessam o rosto/corpo.
+ */
+.hero__actions {
+  position: absolute;
+  z-index: 5;
+  right: clamp(1.25rem, 3vw, 3.25rem);
+  bottom: clamp(4rem, 7vw, 5.5rem);
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.hero__action {
+  min-width: clamp(11.5rem, 16vw, 14.5rem);
+  min-height: 3.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 1.2rem;
+  border: 1px solid var(--hero-ink);
+  border-radius: 0;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.hero__action--listen {
+  color: #ffffff;
+  background: var(--hero-red);
+  border-color: var(--hero-red);
+}
+
+.hero__action--book {
+  color: var(--hero-ink);
+  background: rgba(232, 236, 235, 0.96);
+}
+
+.hero__action span:last-child {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.hero__action:hover {
+  transform: translateY(-2px);
+  background: var(--hero-ink);
+  border-color: var(--hero-ink);
+  color: #ffffff;
+}
+
+/* Linha de informação mínima no rodapé, sem competir com a arte. */
+.hero__footer {
+  position: absolute;
+  z-index: 4;
+  left: clamp(1.25rem, 3vw, 3.25rem);
+  bottom: clamp(1.25rem, 2.2vw, 1.8rem);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--hero-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  mix-blend-mode: multiply;
+}
+
+.hero__rule {
+  width: clamp(3rem, 8vw, 7rem);
+  height: 1px;
+  background: currentColor;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero a:focus-visible {
+  outline: 3px solid var(--hero-ink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .hero__art {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1376 / 768;
+  }
+
+  .hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero__actions {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .hero__action {
+    min-width: 0;
+    min-height: 3.6rem;
+    padding-inline: 1rem;
+  }
+
+  .hero__footer {
+    position: absolute;
+    left: 1rem;
+    bottom: 5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero__art {
+    aspect-ratio: 1376 / 768;
+  }
+
+  .hero__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__action {
+    min-height: 3.35rem;
+  }
+
+  .hero__action--book {
+    background: var(--hero-ink);
+    border-color: var(--hero-ink);
+    color: #ffffff;
+  }
+
+  .hero__footer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__action {
+    transition: none;
+  }
+
+  .hero__action:hover {
+    transform: none;
+  }
+}

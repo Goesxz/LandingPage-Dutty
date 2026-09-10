@@ -1,0 +1,129 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 100;
+
+  padding: 28px 0;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+
+.navbar__logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.navbar__logo span {
+  color: var(--color-orange);
+}
+
+/* MENU */
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navbar__menu a {
+  position: relative;
+
+  color: var(--color-text-secondary);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: color var(--transition-fast);
+}
+
+.navbar__menu a::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--color-orange);
+
+  transition: width var(--transition-fast);
+}
+
+.navbar__menu a:hover {
+  color: var(--color-white);
+}
+
+.navbar__menu a:hover::after {
+  width: 100%;
+}
+
+/* BUTTON */
+
+.navbar__button {
+  padding: 12px 22px;
+
+  border: 1px solid rgba(255, 107, 44, 0.5);
+  border-radius: 999px;
+
+  color: var(--color-white);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  background: rgba(255, 107, 44, 0.08);
+
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar__button:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 0;
+  }
+
+  .navbar__menu {
+    display: none;
+  }
+
+  .navbar__button {
+    padding: 10px 18px;
+  }
+}
+
+
+/* ===== Editorial redesign layer ===== */
+.navbar { padding: 24px 0; mix-blend-mode: normal; }
+.navbar__container { max-width: 1380px; }
+.navbar__logo { font-size: 18px; letter-spacing: .08em; text-transform: uppercase; }
+.navbar__menu { gap: 28px; }
+.navbar__menu a { color: rgba(255,255,255,.72); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.navbar__menu a::after { height: 1px; bottom: -6px; background: #f1a35b; }
+.navbar__button { border: 0; border-bottom: 1px solid rgba(241,163,91,.8); border-radius: 0; background: transparent; padding: 8px 0; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+.navbar__button:hover { background: transparent; border-color: #fff; transform: translateY(-1px); }
+.navbar a:focus-visible { outline: 1px solid #f1a35b; outline-offset: 6px; }
+@media (max-width: 768px) { .navbar { padding: 18px 0; } .navbar__button { padding: 7px 0; } }
