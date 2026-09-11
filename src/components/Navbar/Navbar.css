@@ -263,8 +263,8 @@
    * logo pra fora da tela.)
    */
   .navbar__mascot {
-    width: 96px;
-    height: 96px;
+    width: 110px;
+    height: 110px;
   }
 }
 
@@ -302,8 +302,8 @@
   }
 
   .navbar__mascot {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height:80px;
   }
 
   .navbar__button {
@@ -339,8 +339,8 @@
   }
 
   .navbar__mascot {
-    width: 52px;
-    height: 52px;
+    width: 68px;
+    height: 68px;
   }
 
   .navbar__button {
