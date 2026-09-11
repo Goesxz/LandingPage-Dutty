@@ -1,65 +1,34 @@
 import './Agenda.css'
 
-const events = [
-  {
-    id: '01',
-    month: 'OUT',
-    day: '18',
-    weekday: 'SÁB',
-    title: 'Eduardo Henrique Ao Vivo',
-    venue: 'Local do evento',
-    city: 'São Paulo',
-    state: 'SP',
-    status: 'CONFIRMADO',
-  },
-  {
-    id: '02',
-    month: 'OUT',
-    day: '25',
-    weekday: 'SÁB',
-    title: 'Pagode Sunset',
-    venue: 'Local do evento',
-    city: 'Barueri',
-    state: 'SP',
-    status: 'CONFIRMADO',
-  },
-  {
-    id: '03',
-    month: 'NOV',
-    day: '08',
-    weekday: 'SÁB',
-    title: 'Samba & Pagode',
-    venue: 'Local do evento',
-    city: 'São Paulo',
-    state: 'SP',
-    status: 'CONFIRMADO',
-  },
-]
-
 function Agenda() {
   return (
-    <section className="agenda section" id="agenda">
+    <section
+      className="agenda section"
+      id="agenda"
+      aria-labelledby="agenda-title"
+    >
+      <div className="agenda__background" aria-hidden="true">
+        <span className="agenda__background-word">LIVE</span>
+        <span className="agenda__background-line"></span>
+      </div>
 
-      <div className="agenda__glow agenda__glow--purple"></div>
-      <div className="agenda__glow agenda__glow--orange"></div>
-
-      <div className="container">
+      <div className="container agenda__container">
 
         {/* HEADER */}
 
-        <div className="agenda__header">
+        <header className="agenda__header">
 
           <div className="agenda__heading">
 
             <div className="section-label">
               <span></span>
-              AGENDA
+              AO VIVO
             </div>
 
-            <h2>
-              ONDE A
+            <h2 id="agenda-title">
+              NOVAS DATAS
               <br />
-              <strong>GALERA VAI CANTAR.</strong>
+              <strong>ESTÃO SENDO ESCRITAS.</strong>
             </h2>
 
           </div>
@@ -67,141 +36,180 @@ function Agenda() {
           <div className="agenda__intro">
 
             <span className="agenda__counter">
-              2026
+              01
             </span>
 
             <p>
-              Confira os próximos shows e acompanhe
-              de perto a agenda de Eduardo Henrique.
+              O palco ainda está sendo construído.
+              E pode ser na sua cidade, no seu evento
+              ou na sua próxima celebração.
+            </p>
+
+          </div>
+
+        </header>
+
+
+        {/* AVAILABILITY */}
+
+        <div className="agenda__availability">
+
+          <div className="agenda__availability-main">
+
+            <span className="agenda__eyebrow">
+              DISPONIBILIDADE
+            </span>
+
+            <h3>
+              O PRÓXIMO SHOW
+              <br />
+              <strong>PODE SER O SEU.</strong>
+            </h3>
+
+          </div>
+
+
+          <div className="agenda__availability-info">
+
+            <div className="agenda__availability-status">
+              <span></span>
+              NOVAS DATAS ABERTAS
+            </div>
+
+            <p>
+              Eduardo Henrique está disponível para
+              shows, eventos, festas, casas e projetos
+              musicais.
             </p>
 
           </div>
 
         </div>
 
-        {/* EVENTS */}
 
-        <div className="agenda__list">
+        {/* AREAS */}
 
-          {events.map((event) => (
-            <article
-              className="agenda__event"
-              key={event.id}
-            >
+        <div className="agenda__areas">
 
-              {/* INDEX */}
+          <div className="agenda__area">
 
-              <div className="agenda__index">
-                {event.id}
-              </div>
+            <span className="agenda__area-index">
+              01
+            </span>
 
-              {/* DATE */}
+            <div>
+              <strong>
+                SHOWS
+              </strong>
 
-              <div className="agenda__date">
+              <p>
+                Samba e pagode ao vivo,
+                com repertório para cantar junto.
+              </p>
+            </div>
 
-                <span>
-                  {event.month}
-                </span>
+          </div>
 
-                <strong>
-                  {event.day}
-                </strong>
 
-                <small>
-                  {event.weekday}
-                </small>
+          <div className="agenda__area">
 
-              </div>
+            <span className="agenda__area-index">
+              02
+            </span>
 
-              {/* INFO */}
+            <div>
+              <strong>
+                EVENTOS
+              </strong>
 
-              <div className="agenda__info">
+              <p>
+                Festas, confraternizações,
+                celebrações e eventos particulares.
+              </p>
+            </div>
 
-                <div className="agenda__status">
-                  <i></i>
-                  {event.status}
-                </div>
+          </div>
 
-                <h3>
-                  {event.title}
-                </h3>
 
-                <p>
-                  {event.venue}
-                </p>
+          <div className="agenda__area">
 
-              </div>
+            <span className="agenda__area-index">
+              03
+            </span>
 
-              {/* LOCATION */}
+            <div>
+              <strong>
+                NOVOS PROJETOS
+              </strong>
 
-              <div className="agenda__location">
+              <p>
+                Casas, parcerias e oportunidades
+                para levar o som mais longe.
+              </p>
+            </div>
 
-                <span>
-                  LOCAL
-                </span>
-
-                <strong>
-                  {event.city}
-                  <small>
-                    / {event.state}
-                  </small>
-                </strong>
-
-              </div>
-
-              {/* ACTION */}
-
-              <a
-                href="#contrate"
-                className="agenda__action"
-                aria-label={`Solicitar informações sobre ${event.title}`}
-              >
-                <span>
-                  +
-                </span>
-
-                <small>
-                  INFO
-                </small>
-              </a>
-
-            </article>
-          ))}
+          </div>
 
         </div>
 
-        {/* BOTTOM */}
 
-        <div className="agenda__bottom">
+        {/* CTA */}
 
-          <div className="agenda__bottom-content">
+        <div className="agenda__cta">
+
+          <div className="agenda__cta-copy">
 
             <span>
               SEU EVENTO PODE ESTAR AQUI
             </span>
 
             <strong>
-              Quer levar o show
+              VAMOS MARCAR
               <br />
-              para sua cidade?
+              UMA DATA?
             </strong>
 
           </div>
 
+
           <a
             href="#contrate"
-            className="agenda__cta"
+            className="agenda__cta-link"
           >
-            Solicitar orçamento
-            <span>↗</span>
+            <span>
+              CONTRATE O EDUARDO
+            </span>
+
+            <strong aria-hidden="true">
+              ↗
+            </strong>
           </a>
 
         </div>
 
-      </div>
 
+        {/* FOOTER */}
+
+        <div className="agenda__footer">
+
+          <span>
+            EDUARDO HENRIQUE
+          </span>
+
+          <span>
+            SAMBA • PAGODE • MÚSICA
+          </span>
+
+          <span>
+            NOVAS OPORTUNIDADES
+          </span>
+
+        </div>
+
+      </div>
     </section>
   )
 }
 
 export default Agenda
+

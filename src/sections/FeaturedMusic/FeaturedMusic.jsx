@@ -1,4 +1,5 @@
 import './FeaturedMusic.css'
+import compondo from '../../assets/images/compondo.png'
 
 function FeaturedMusic() {
   return (
@@ -65,27 +66,28 @@ function FeaturedMusic() {
             />
 
             <div className="featured-music__artwork-top">
-              <span>EH.</span>
+              
+
               <span>01 / 01</span>
             </div>
 
             <div className="featured-music__artwork-main">
 
-              <span className="featured-music__artwork-name">
-                EDUARDO
-              </span>
+  <span className="featured-music__artwork-name">
+    EDUARDO
+  </span>
+<img
+  src={compondo}
+  alt="Eduardo Henrique compondo"
+  className="featured-music__mascot--main"
+/>
+  <span className="featured-music__artwork-title">
+    NOME DA
+    <br />
+    MÚSICA
+  </span>
 
-              <strong>
-                EH.
-              </strong>
-
-              <span className="featured-music__artwork-title">
-                NOME DA
-                <br />
-                MÚSICA
-              </span>
-
-            </div>
+</div>
 
             <div className="featured-music__artwork-bottom">
               <span>PAGODE • SAMBA</span>
@@ -97,7 +99,7 @@ function FeaturedMusic() {
               aria-hidden="true"
             >
               <div className="featured-music__record-label">
-                EH
+                
               </div>
             </div>
 
@@ -135,9 +137,7 @@ function FeaturedMusic() {
               sente e transforma em música.
             </p>
 
-
             <div className="featured-music__line" />
-
 
             <div className="featured-music__listen">
 
@@ -181,7 +181,6 @@ function FeaturedMusic() {
 
             </div>
 
-
             <a
               href="#"
               className="featured-music__button"
@@ -224,7 +223,6 @@ function FeaturedMusic() {
 
           </div>
 
-
           <div
             className="featured-music__wave"
             aria-hidden="true"
@@ -251,7 +249,6 @@ function FeaturedMusic() {
             <i />
           </div>
 
-
           <span className="featured-music__duration">
             03:42
           </span>
@@ -264,4 +261,3 @@ function FeaturedMusic() {
 }
 
 export default FeaturedMusic
-

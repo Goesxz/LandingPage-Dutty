@@ -1,3 +1,7 @@
+/* =========================================================
+   NAVBAR — EDUARDO HENRIQUE
+   ========================================================= */
+
 .navbar {
   position: absolute;
   top: 0;
@@ -7,45 +11,131 @@
 
   z-index: 100;
 
-  padding: 28px 0;
+  padding: 20px 0;
+
+  color: #f3f0ea;
 }
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .navbar__container {
+  width: min(1380px, calc(100% - 48px));
+  max-width: 1380px;
+
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-/* LOGO */
+
+/* =========================================================
+   BONEQUINHO / MARCA
+   ========================================================= */
 
 .navbar__logo {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: -1.5px;
+  position: absolute;
+
+  /*
+   * Posição do bonequinho sobre o EH da imagem do Hero.
+   * Ajuste top/left se precisar mover.
+   */
+  top: 0;
+  left: 18px;
+
+  z-index: 200;
+
+  display: flex;
+  align-items: flex-start;
+
+  width: 140px;
+  height: 140px;
+
+  text-decoration: none;
+
+  color: #f3f0ea;
+
+  pointer-events: auto;
 }
 
-.navbar__logo span {
-  color: var(--color-orange);
+
+/* =========================================================
+   BONEQUINHO
+   ========================================================= */
+
+.navbar__mascot {
+  position: relative;
+
+  z-index: 201;
+
+  width: 140px;
+  height: 140px;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center center;
+
+  transform-origin: center bottom;
+
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* MENU */
+.navbar__logo:hover .navbar__mascot {
+  transform: translateY(-3px) rotate(-3deg);
+}
+
+
+/* =========================================================
+   NOME
+   ========================================================= */
+
+.navbar__brand {
+  display: none;
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
 
 .navbar__menu {
   display: flex;
   align-items: center;
-  gap: 36px;
+  justify-content: center;
+
+  gap: 28px;
 }
 
 .navbar__menu a {
   position: relative;
 
-  color: var(--color-text-secondary);
+  color: rgba(243, 240, 234, 0.78);
 
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
 
-  transition: color var(--transition-fast);
+  line-height: 1;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
 }
+
+
+/* =========================================================
+   LINHA DO MENU
+   ========================================================= */
 
 .navbar__menu a::after {
   content: '';
@@ -56,74 +146,343 @@
   bottom: -7px;
 
   width: 0;
-  height: 2px;
+  height: 1px;
 
-  background: var(--color-orange);
+  background: #f1a35b;
 
-  transition: width var(--transition-fast);
+  transition: width 0.3s ease;
 }
 
 .navbar__menu a:hover {
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 .navbar__menu a:hover::after {
   width: 100%;
 }
 
-/* BUTTON */
+
+/* =========================================================
+   BOTÃO CONTRATE
+   ========================================================= */
 
 .navbar__button {
-  padding: 12px 22px;
+  display: inline-flex;
+  align-items: center;
 
-  border: 1px solid rgba(255, 107, 44, 0.5);
-  border-radius: 999px;
+  gap: 12px;
 
-  color: var(--color-white);
+  margin-left: 32px;
 
-  font-size: 13px;
-  font-weight: 700;
+  padding: 8px 0;
 
-  background: rgba(255, 107, 44, 0.08);
+  color: #f3f0ea;
+
+  border: 0;
+  border-bottom: 1px solid rgba(241, 163, 91, 0.8);
+
+  background: transparent;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+  text-decoration: none;
 
   transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast);
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.navbar__button strong {
+  color: #f1a35b;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  line-height: 0;
+
+  transition:
+    transform 0.25s ease;
 }
 
 .navbar__button:hover {
-  background: var(--color-orange);
-  border-color: var(--color-orange);
+  color: #ffffff;
 
-  transform: translateY(-2px);
+  border-color: #ffffff;
+
+  transform: translateY(-1px);
 }
 
-/* MOBILE */
+.navbar__button:hover strong {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.navbar a:focus-visible {
+  outline: 1px solid #f1a35b;
+  outline-offset: 7px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+  .navbar__container {
+    width: calc(100% - 32px);
+  }
+
+  .navbar__menu {
+    gap: 18px;
+  }
+
+  .navbar__menu a {
+    font-size: 9px;
+  }
+
+  .navbar__button {
+    margin-left: 22px;
+  }
+
+  /*
+   * Mantém o bonequinho relativamente grande para
+   * continuar cobrindo o EH do Hero. (bug antigo
+   * "top:100px; left:1000px" removido — jogava o
+   * logo pra fora da tela.)
+   */
+  .navbar__mascot {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Menu completo some (sem hambúrguer no HTML atual).
+   O botão de contato vira o único CTA visível, então
+   ele passa a ser um botão de verdade — com área de
+   toque confortável — em vez de um texto sublinhado.
+   ========================================================= */
 
 @media (max-width: 768px) {
+
   .navbar {
-    padding: 20px 0;
+    padding: 14px 0;
+  }
+
+  .navbar__container {
+    width: calc(100% - 24px);
+
+    min-height: 48px;
   }
 
   .navbar__menu {
     display: none;
   }
 
+  .navbar__logo {
+    top: 4px;
+    left: 10px;
+
+    width: 64px;
+    height: 64px;
+  }
+
+  .navbar__mascot {
+    width: 64px;
+    height: 64px;
+  }
+
   .navbar__button {
-    padding: 10px 18px;
+    margin-left: 0;
+
+    padding: 12px 18px;
+
+    border: 1px solid rgba(241, 163, 91, 0.8);
+    border-bottom: 1px solid rgba(241, 163, 91, 0.8);
+
+    font-size: 9px;
+  }
+
+  .navbar__button:active {
+    transform: scale(0.97);
+
+    border-color: #ffffff;
   }
 }
 
 
-/* ===== Editorial redesign layer ===== */
-.navbar { padding: 24px 0; mix-blend-mode: normal; }
-.navbar__container { max-width: 1380px; }
-.navbar__logo { font-size: 18px; letter-spacing: .08em; text-transform: uppercase; }
-.navbar__menu { gap: 28px; }
-.navbar__menu a { color: rgba(255,255,255,.72); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
-.navbar__menu a::after { height: 1px; bottom: -6px; background: #f1a35b; }
-.navbar__button { border: 0; border-bottom: 1px solid rgba(241,163,91,.8); border-radius: 0; background: transparent; padding: 8px 0; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
-.navbar__button:hover { background: transparent; border-color: #fff; transform: translateY(-1px); }
-.navbar a:focus-visible { outline: 1px solid #f1a35b; outline-offset: 6px; }
-@media (max-width: 768px) { .navbar { padding: 18px 0; } .navbar__button { padding: 7px 0; } }
+/* =========================================================
+   TELAS MUITO PEQUENAS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .navbar__logo {
+    left: 6px;
+
+    width: 52px;
+    height: 52px;
+  }
+
+  .navbar__mascot {
+    width: 52px;
+    height: 52px;
+  }
+
+  .navbar__button {
+    padding: 10px 14px;
+
+    font-size: 8px;
+  }
+
+  .navbar__button strong {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   REDUZIR MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar__mascot,
+  .navbar__button,
+  .navbar__button strong {
+    transition: none;
+  }
+
+}
+
+/* =========================================================
+   MASCOTE — COMPOSING
+   ========================================================= */
+
+.featured-music__mascot {
+  display: block;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+
+/* =========================================================
+   MASCOTE — TOPO
+   ========================================================= */
+
+.featured-music__artwork-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.featured-music__mascot--top {
+  width: 48px;
+  height: 48px;
+
+  object-position: center;
+}
+
+
+/* =========================================================
+   MASCOTE — PRINCIPAL
+   ========================================================= */
+
+.featured-music__mascot--main {
+  width: 180px;
+  height: 180px;
+
+  margin-left: -18px;
+  margin-top: 8px;
+
+  object-position: center;
+
+  transform-origin: center bottom;
+
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.featured-music__artwork:hover .featured-music__mascot--main {
+  transform: translateY(-5px) rotate(-2deg);
+}
+
+
+/* =========================================================
+   MASCOTE — DISCO
+   ========================================================= */
+
+.featured-music__mascot--record {
+  width: 78px;
+  height: 78px;
+
+  object-position: center;
+}
+
+
+/* =========================================================
+   REMOVE O ANTIGO ESTILO DO EH
+   ========================================================= */
+
+.featured-music__artwork-main strong {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .featured-music__mascot--top {
+    width: 42px;
+    height: 42px;
+  }
+
+  .featured-music__mascot--main {
+    width: 145px;
+    height: 145px;
+
+    margin-left: -12px;
+    margin-top: 5px;
+  }
+
+  .featured-music__mascot--record {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+
+@media (max-width: 420px) {
+
+  .featured-music__mascot--main {
+    width: 125px;
+    height: 125px;
+  }
+
+  .featured-music__mascot--record {
+    width: 50px;
+    height: 50px;
+  }
+}
+

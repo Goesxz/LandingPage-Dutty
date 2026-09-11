@@ -2,97 +2,132 @@ import './Booking.css'
 
 function Booking() {
   return (
-    <section className="booking section" id="contrate" aria-labelledby="booking-title">
-      <div className="booking__glow booking__glow--purple" aria-hidden="true" />
-      <div className="booking__glow booking__glow--orange" aria-hidden="true" />
+    <section
+      className="booking section"
+      id="contrate"
+      aria-labelledby="booking-title"
+    >
+      <div className="booking__background" aria-hidden="true">
+        <span className="booking__background-word">SHOW</span>
+        <span className="booking__background-number">06</span>
+      </div>
 
       <div className="container">
-        <div className="booking__card">
-          <div className="booking__background" aria-hidden="true">
-            <div className="booking__background-grid" />
-            <span className="booking__background-word">SHOW</span>
+        <header className="booking__header">
+          <div className="section-label">
+            <span />
+            CONTRATE O ARTISTA
           </div>
 
-          <div className="booking__content">
-            <div className="section-label">
-              <span />
-              CONTRATE O ARTISTA
-            </div>
+          <div className="booking__meta">
+            <span>06 / 06</span>
+            <span>EDUARDO HENRIQUE</span>
+          </div>
+        </header>
 
-            <div className="booking__headline">
-              <span className="booking__eyebrow">SEU EVENTO</span>
-              <h2 id="booking-title">
-                LEVE O SHOW
-                <br />
-                <strong>DE EDUARDO.</strong>
-              </h2>
-            </div>
+        <div className="booking__editorial">
+          <div className="booking__main">
+            <span className="booking__eyebrow">
+              SEU EVENTO. O PRÓXIMO PALCO.
+            </span>
+
+            <h2 id="booking-title">
+              LEVE O
+              <br />
+              <strong>SHOW</strong>
+              <br />
+              DE EDUARDO
+              <br />
+              HENRIQUE.
+            </h2>
 
             <p className="booking__description">
-              Leve a experiência de Eduardo Henrique para o seu evento. Entre em contato,
-              conte um pouco sobre a ocasião e solicite uma proposta personalizada.
+              Aniversários, casamentos, eventos corporativos, bares,
+              restaurantes ou celebrações especiais.
+              <br />
+              Entre em contato e conte um pouco sobre o seu evento.
             </p>
 
             <div className="booking__actions">
               <a
                 href="#"
-                className="booking__button booking__button--whatsapp"
-               
+                className="booking__action booking__action--primary"
               >
-                <span className="booking__button-icon" aria-hidden="true">↗</span>
-                <span className="booking__button-text">
+                <span>
                   <small>FALE PELO</small>
                   WhatsApp
                 </span>
-                <span className="booking__button-arrow" aria-hidden="true">→</span>
+                <strong aria-hidden="true">↗</strong>
               </a>
 
               <a
                 href="mailto:contato@eduardohenrique.com"
-                className="booking__button booking__button--email"
+                className="booking__action"
               >
-                <span className="booking__button-icon" aria-hidden="true">@</span>
-                <span className="booking__button-text">
+                <span>
                   <small>ENVIE UM</small>
                   E-mail
                 </span>
-                <span className="booking__button-arrow" aria-hidden="true">→</span>
+                <strong aria-hidden="true">↗</strong>
               </a>
             </div>
 
             <span className="booking__note">
-              RESPONDEREMOS COM AS INFORMAÇÕES SOBRE DISPONIBILIDADE E CONTRATAÇÃO.
+              DISPONIBILIDADE • CONTRATAÇÃO • INFORMAÇÕES DO SHOW
             </span>
           </div>
 
-          <aside className="booking__side" aria-label="Informações sobre o show">
-            <div className="booking__side-top">
+          <aside
+            className="booking__aside"
+            aria-label="Informações para contratação"
+          >
+            <div className="booking__aside-top">
               <span>EH.</span>
-              <strong>02</strong>
+              <span>BOOKING</span>
             </div>
 
-            <div className="booking__side-content">
-              <span>
-                SHOW <i>•</i> EVENTOS <i>•</i> EXPERIÊNCIAS
+            <div className="booking__aside-middle">
+              <span className="booking__aside-label">
+                O PRÓXIMO PALCO
               </span>
-              <h3>
-                Vamos fazer
+
+              <p>
+                PODE SER
                 <br />
-                esse show
-                <br />
-                <strong>acontecer.</strong>
-              </h3>
+                <strong>O SEU.</strong>
+              </p>
+
+              <div className="booking__aside-line" />
             </div>
 
-            <div className="booking__side-bottom">
-              <span>EDUARDO HENRIQUE</span>
-              <div aria-hidden="true">↗</div>
+            <div className="booking__aside-bottom">
+              <div>
+                <span>01</span>
+                <p>ENTRE EM<br />CONTATO</p>
+              </div>
+
+              <div>
+                <span>02</span>
+                <p>CONTE SOBRE<br />O EVENTO</p>
+              </div>
+
+              <div>
+                <span>03</span>
+                <p>VAMOS<br />CONVERSAR</p>
+              </div>
             </div>
           </aside>
         </div>
+
+        <footer className="booking__footer"> 
+          <span>EDUARDO HENRIQUE</span>
+          <span>SAMBA • PAGODE • MÚSICA</span>
+          <span>SEU EVENTO ↗</span>
+        </footer>
       </div>
     </section>
   )
 }
 
 export default Booking
+

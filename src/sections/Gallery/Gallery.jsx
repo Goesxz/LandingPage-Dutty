@@ -5,19 +5,19 @@ const galleryItems = [
     id: '01',
     type: 'SHOW',
     title: 'No palco',
-    size: 'large',
+    size: 'featured',
   },
   {
     id: '02',
     type: 'ARTISTA',
     title: 'Eduardo Henrique',
-    size: 'small',
+    size: 'portrait',
   },
   {
     id: '03',
     type: 'BASTIDORES',
     title: 'Antes do show',
-    size: 'small',
+    size: 'square',
   },
   {
     id: '04',
@@ -29,147 +29,235 @@ const galleryItems = [
     id: '05',
     type: 'LIVE',
     title: 'Energia ao vivo',
-    size: 'tall',
+    size: 'portrait',
   },
 ]
 
 function GalleryPlaceholder({ item }) {
   return (
-    <div className={`gallery__placeholder gallery__placeholder--${item.id}`}>
+    <div className={`gallery__media gallery__media--${item.id}`}>
+      <div className="gallery__media-noise" aria-hidden="true"></div>
 
-      <div className="gallery__placeholder-grid"></div>
-
-      <div className="gallery__placeholder-content">
-
-        <span className="gallery__placeholder-number">
-          {item.id}
-        </span>
-
-        <strong>
-          EH.
-        </strong>
-
-        <small>
-          {item.type}
-        </small>
-
+      <div className="gallery__media-mark" aria-hidden="true">
+        <span>EH.</span>
       </div>
 
+      <div className="gallery__media-index">
+        {item.id}
+      </div>
+
+      <div className="gallery__media-type">
+        {item.type}
+      </div>
     </div>
   )
 }
 
 function Gallery() {
   return (
-    <section className="gallery section" id="galeria">
+    <section
+      className="gallery section"
+      id="galeria"
+      aria-labelledby="gallery-title"
+    >
+      <div className="gallery__background" aria-hidden="true">
+        <span className="gallery__background-word">
+          MEMÓRIA
+        </span>
 
-      <div className="gallery__glow gallery__glow--purple"></div>
-      <div className="gallery__glow gallery__glow--orange"></div>
+        <span className="gallery__background-line"></span>
+      </div>
 
-      <div className="container">
+      <div className="container gallery__container">
 
         {/* HEADER */}
 
-        <div className="gallery__header">
-
+        <header className="gallery__header">
           <div className="gallery__heading">
-
             <div className="section-label">
               <span></span>
               GALERIA
             </div>
 
-            <h2>
-              MOMENTOS QUE
+            <h2 id="gallery-title">
+              CADA SHOW
               <br />
-              <strong>FICAM NA MEMÓRIA.</strong>
+              <strong>VIRA HISTÓRIA.</strong>
             </h2>
-
           </div>
 
           <div className="gallery__intro">
+            <span>05</span>
 
-            <span>
-              05
-            </span>
+            <div>
+              <p>
+                Palco, público, bastidores e a energia
+                que existe antes, durante e depois do show.
+              </p>
 
-            <p>
-              Palco, público, bastidores e momentos
-              que fazem parte da história de Eduardo.
-            </p>
-
+              <small>
+                EDUARDO HENRIQUE / MOMENTOS
+              </small>
+            </div>
           </div>
-
-        </div>
+        </header>
 
         {/* GALLERY */}
 
         <div className="gallery__grid">
 
-          {galleryItems.map((item) => (
-            <article
-              className={`gallery__item gallery__item--${item.size}`}
-              key={item.id}
-            >
+          {/* FEATURED */}
 
-              <GalleryPlaceholder item={item} />
+          <article className="gallery__item gallery__item--featured">
+            <GalleryPlaceholder item={galleryItems[0]} />
 
-              <div className="gallery__overlay">
-
-                <div className="gallery__overlay-top">
-                  <span>{item.id}</span>
-                  <span>{item.type}</span>
-                </div>
-
-                <div className="gallery__overlay-bottom">
-
-                  <strong>
-                    {item.title}
-                  </strong>
-
-                  <span>
-                    ↗
-                  </span>
-
-                </div>
-
+            <div className="gallery__caption">
+              <div className="gallery__caption-top">
+                <span>{galleryItems[0].id}</span>
+                <span>{galleryItems[0].type}</span>
               </div>
 
-            </article>
-          ))}
+              <div className="gallery__caption-bottom">
+                <div>
+                  <small>AO VIVO</small>
+                  <h3>{galleryItems[0].title}</h3>
+                </div>
+
+                <span className="gallery__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* PORTRAIT */}
+
+          <article className="gallery__item gallery__item--portrait">
+            <GalleryPlaceholder item={galleryItems[1]} />
+
+            <div className="gallery__caption">
+              <div className="gallery__caption-top">
+                <span>{galleryItems[1].id}</span>
+                <span>{galleryItems[1].type}</span>
+              </div>
+
+              <div className="gallery__caption-bottom">
+                <div>
+                  <small>ARTISTA</small>
+                  <h3>{galleryItems[1].title}</h3>
+                </div>
+
+                <span className="gallery__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* SQUARE */}
+
+          <article className="gallery__item gallery__item--square">
+            <GalleryPlaceholder item={galleryItems[2]} />
+
+            <div className="gallery__caption">
+              <div className="gallery__caption-top">
+                <span>{galleryItems[2].id}</span>
+                <span>{galleryItems[2].type}</span>
+              </div>
+
+              <div className="gallery__caption-bottom">
+                <div>
+                  <small>BASTIDORES</small>
+                  <h3>{galleryItems[2].title}</h3>
+                </div>
+
+                <span className="gallery__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* WIDE */}
+
+          <article className="gallery__item gallery__item--wide">
+            <GalleryPlaceholder item={galleryItems[3]} />
+
+            <div className="gallery__caption">
+              <div className="gallery__caption-top">
+                <span>{galleryItems[3].id}</span>
+                <span>{galleryItems[3].type}</span>
+              </div>
+
+              <div className="gallery__caption-bottom">
+                <div>
+                  <small>PÚBLICO</small>
+                  <h3>{galleryItems[3].title}</h3>
+                </div>
+
+                <span className="gallery__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* FINAL PORTRAIT */}
+
+          <article className="gallery__item gallery__item--last">
+            <GalleryPlaceholder item={galleryItems[4]} />
+
+            <div className="gallery__caption">
+              <div className="gallery__caption-top">
+                <span>{galleryItems[4].id}</span>
+                <span>{galleryItems[4].type}</span>
+              </div>
+
+              <div className="gallery__caption-bottom">
+                <div>
+                  <small>LIVE</small>
+                  <h3>{galleryItems[4].title}</h3>
+                </div>
+
+                <span className="gallery__arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+            </div>
+          </article>
 
         </div>
 
         {/* FOOTER */}
 
-        <div className="gallery__footer">
-
-          <div className="gallery__footer-info">
-            <span>
-              EDUARDO HENRIQUE
+        <footer className="gallery__footer">
+          <div className="gallery__footer-left">
+            <span className="gallery__footer-number">
+              05 / 05
             </span>
 
-            <p>
-              Samba • Pagode • Música
-            </p>
+            <div>
+              <strong>EDUARDO HENRIQUE</strong>
+              <p>
+                Samba • Pagode • Música
+              </p>
+            </div>
           </div>
 
-          <a href="#redes">
-            <span>
-              MAIS MOMENTOS
-            </span>
+          <a href="#redes" className="gallery__instagram">
+            <span>MAIS MOMENTOS</span>
 
             <strong>
-              Instagram ↗
+              Instagram
+              <b aria-hidden="true">↗</b>
             </strong>
           </a>
-
-        </div>
+        </footer>
 
       </div>
-
     </section>
   )
 }
 
 export default Gallery
+

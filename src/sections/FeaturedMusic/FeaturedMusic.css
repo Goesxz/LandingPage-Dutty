@@ -815,18 +815,21 @@
   }
 
   .featured-music__artwork-main strong {
-    font-size: 105px;
+    font-size: clamp(72px, 24vw, 105px);
   }
 
   .featured-music__artwork-title {
     margin-top: 22px;
-    font-size: 28px;
+    font-size: clamp(22px, 6vw, 28px);
   }
 
   .featured-music__artwork-bottom {
     left: 24px;
     right: 24px;
     bottom: 18px;
+
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .featured-music__record {
@@ -845,7 +848,7 @@
   }
 
   .featured-music__content h3 {
-    font-size: clamp(46px, 13vw, 68px);
+    font-size: clamp(40px, 12vw, 68px);
   }
 
   .featured-music__description {
@@ -860,15 +863,24 @@
 
   .featured-music__platform {
     width: 100%;
+    min-height: 44px;
+    padding: 12px 0;
   }
 
   .featured-music__button {
     width: 100%;
+    min-height: 48px;
   }
 
   .featured-music__player {
-    grid-template-columns: 38px minmax(0, 1fr) 40px;
+    grid-template-columns: 44px minmax(0, 1fr) 40px;
     gap: 12px;
+  }
+
+  .featured-music__player-button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
   }
 
   .featured-music__wave {
@@ -892,24 +904,51 @@
 @media (max-width: 420px) {
 
   .featured-music__artwork {
-    min-height: 420px;
+    min-height: 400px;
+  }
+
+  .featured-music__artwork-main {
+    left: 20px;
+    bottom: 26px;
   }
 
   .featured-music__artwork-main strong {
-    font-size: 88px;
+    font-size: 60px;
   }
 
   .featured-music__artwork-title {
-    font-size: 24px;
+    margin-top: 16px;
+    font-size: 20px;
+  }
+
+  .featured-music__artwork-top,
+  .featured-music__artwork-bottom {
+    left: 20px;
+    right: 20px;
   }
 
   .featured-music__record {
-    width: 250px;
-    right: -125px;
+    width: 200px;
+    right: -105px;
+  }
+
+  .featured-music__record-label {
+    width: 60px;
+    height: 60px;
+    font-size: 9px;
   }
 
   .featured-music__content {
-    padding: 38px 20px;
+    padding: 32px 18px;
+  }
+
+  .featured-music__meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .featured-music__platform {
+    grid-template-columns: 22px auto 16px;
   }
 }
 
@@ -931,3 +970,75 @@
   }
 }
 
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .featured-music__wave i {
+    animation: none;
+  }
+
+  .featured-music__platform,
+  .featured-music__button,
+  .featured-music__player-button {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   BONEQUINHO — COMPOSITOR
+   ========================================================= */
+
+.featured-music__mascot--main {
+  display: block;
+
+  width: 250px;
+  height: 250px;
+
+  object-fit: contain;
+  object-position: center;
+
+  margin-left: -25px;
+  margin-top: 8px;
+
+  position: relative;
+  z-index: 6;
+
+  transform-origin: center bottom;
+
+}
+
+/* Pequeno movimento ao passar o mouse */
+/* =========================================================
+   MASCOTE — MÚSICA
+   ========================================================= */
+
+.featured-music__mascot--main {
+  display: block;
+
+  width: clamp(110px, 13vw, 180px);
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  margin-left: -8px;
+  margin-top: 8px;
+
+  position: relative;
+  z-index: 6;
+
+  transform-origin: center bottom;
+
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.featured-music__artwork:hover
+.featured-music__mascot--main {
+  transform: translateY(-4px) rotate(-2deg);
+}
