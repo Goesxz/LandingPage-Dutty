@@ -4,75 +4,46 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="footer">
-      <div className="container">
+    <footer className="footer" id="footer">
+      <div className="footer__inner">
 
-        {/* ENCERRAMENTO */}
-
-        <div className="footer__hero">
-          <div className="footer__watermark" aria-hidden="true">
-            EH.
-          </div>
-
-          <div className="footer__hero-content">
-            <span className="footer__eyebrow">
-              EDUARDO HENRIQUE
-            </span>
-
-            <h2>
-              A MÚSICA
-              <br />
-              <strong>NÃO PARA.</strong>
-            </h2>
-
-            <a
-              href="#inicio"
-              className="footer__hero-link"
-            >
-              Voltar ao início
-              <span aria-hidden="true">↑</span>
-            </a>
-          </div>
-        </div>
-
-        {/* NAVEGAÇÃO */}
-
-        <div className="footer__main">
+        <div className="footer__top">
 
           <div className="footer__brand">
             <a
               href="#inicio"
               className="footer__logo"
-              aria-label="Eduardo Henrique — início"
+              aria-label="Eduardo Henrique — voltar ao início"
             >
               EH<span>.</span>
             </a>
 
-            <p>
-              O pagode que faz
-              <br />
+            <p className="footer__tagline">
+              O pagode que faz<br />
               a galera cantar.
             </p>
           </div>
 
           <nav
-            className="footer__column"
-            aria-label="Navegação do site"
+            className="footer__nav"
+            aria-label="Navegação do rodapé"
           >
-            <span className="footer__title">
-              NAVEGAÇÃO
-            </span>
+            <div className="footer__group">
+              <span className="footer__label">
+                NAVEGAÇÃO
+              </span>
 
-            <a href="#inicio">Início</a>
-            <a href="#musica">Música</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#videos">Vídeos</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#agenda">Agenda</a>
+              <a href="#inicio">Início</a>
+              <a href="#musica">Música</a>
+              <a href="#sobre">Sobre</a>
+              <a href="#videos">Vídeos</a>
+              <a href="#galeria">Galeria</a>
+              <a href="#agenda">Agenda</a>
+            </div>
           </nav>
 
-          <div className="footer__column">
-            <span className="footer__title">
+          <div className="footer__contact">
+            <span className="footer__label">
               CONTATO
             </span>
 
@@ -84,45 +55,80 @@ function Footer() {
               contato@eduardohenrique.com
             </a>
 
-            <span className="footer__muted">
-              São Paulo • Brasil
+            <span className="footer__location">
+              São Paulo · Brasil
             </span>
           </div>
 
-          <nav
-            className="footer__column"
-            aria-label="Redes sociais"
-          >
-            <span className="footer__title">
+          <div className="footer__social">
+            <span className="footer__label">
               REDES
             </span>
 
-            <a href="#redes">Instagram ↗</a>
-            <a href="#redes">YouTube ↗</a>
-            <a href="#redes">Spotify ↗</a>
-          </nav>
+            <a
+              href="#instagram"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              href="#youtube"
+              target="_blank"
+              rel="noreferrer"
+            >
+              YouTube
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              href="#spotify"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Spotify
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
 
         </div>
 
-        {/* BOTTOM */}
+        <div className="footer__middle">
+          <div className="footer__middle-line" />
+
+          <span className="footer__middle-copy">
+            COMPOSIÇÃO · VOZ · PAGODE · SHOW
+          </span>
+
+          <span className="footer__middle-copy footer__middle-copy--right">
+            EH / 2026
+          </span>
+        </div>
 
         <div className="footer__bottom">
-          <p>
-            © {currentYear} Eduardo Henrique.
-            Todos os direitos reservados.
-          </p>
 
-          <span>
-            SAMBA • PAGODE • MÚSICA
-          </span>
+          <div className="footer__copyright">
+            © {currentYear} Eduardo Henrique.
+            <span>Todos os direitos reservados.</span>
+          </div>
 
           <a
             href="#inicio"
-            className="footer__top"
+            className="footer__back-top"
             aria-label="Voltar ao início"
           >
-            ↑
+            <span aria-hidden="true">↑</span>
           </a>
+
+        </div>
+
+        <div
+          className="footer__watermark"
+          aria-hidden="true"
+        >
+          EDUARDO
         </div>
 
       </div>
