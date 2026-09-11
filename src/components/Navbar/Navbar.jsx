@@ -1,3 +1,4 @@
+import deboa from '../../assets/images/deboa.png'
 import './Navbar.css'
 
 function Navbar() {
@@ -11,10 +12,10 @@ function Navbar() {
   aria-label="Eduardo Henrique — início"
 >
   <img
-    src="/src/assets/images/deboa.png"
-    alt=""
-    className="navbar__mascot"
-  />
+  src={deboa}
+  alt=""
+  className="navbar__mascot"
+/>
 
   <span className="navbar__brand">
     EDUARDO
