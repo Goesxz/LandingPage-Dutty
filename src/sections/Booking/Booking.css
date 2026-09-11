@@ -361,10 +361,12 @@
 
 /* =========================================
    MOBILE
-   (redesigned para toque: CTA primária vira botão
+   (redesenhado para toque: CTA primária vira botão
    sólido de destaque, aside vira "cartão de resumo"
-   flutuante, processo fica mais legível, feedback de
-   toque no lugar de hover)
+   flutuante com leve rotação editorial, processo vira
+   mini-grade de 3 colunas — ritmo diferente do Agenda,
+   que já usa lista vertical — feedback de toque no
+   lugar de hover)
 ========================================= */
 
 @media (max-width: 700px) {
@@ -484,20 +486,45 @@
     text-align: center;
   }
 
-  /* ---------- ASIDE: vira um cartão de resumo flutuante ---------- */
+  /* ---------- ASIDE: vira um cartão de resumo flutuante,
+     com leve rotação editorial pra fugir do "cartão reto
+     padrão" que já apareceu em outras seções ---------- */
 
   .booking__aside {
     min-height: 0;
 
-    margin-top: 40px;
+    margin-top: 44px;
     padding: 28px 22px;
 
     border-radius: 20px;
-    box-shadow: 0 18px 46px rgba(17, 17, 17, 0.22);
+    box-shadow: 0 18px 46px rgba(17, 17, 17, 0.24);
+
+    transform: rotate(-1deg);
+
+    transition: transform 0.35s ease;
+  }
+
+  .booking__aside:active {
+    transform: rotate(0deg) scale(0.99);
   }
 
   .booking__aside-top {
     padding-bottom: 16px;
+  }
+
+  .booking__aside-top span:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    background: rgba(243, 240, 234, 0.08);
+    border-radius: 50%;
+
+    font-size: 15px;
+    letter-spacing: -0.04em;
   }
 
   .booking__aside-middle {
@@ -516,22 +543,44 @@
     margin-top: 26px;
   }
 
+  /* processo em 3 colunas — ritmo diferente da lista
+     vertical usada em outras seções do site */
   .booking__aside-bottom {
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
 
     padding-top: 26px;
   }
 
   .booking__aside-bottom > div {
-    gap: 14px;
+    grid-template-columns: 1fr;
+    justify-items: center;
 
-    padding-top: 12px;
+    gap: 8px;
+
+    padding-top: 14px;
+    text-align: center;
+  }
+
+  .booking__aside-bottom span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    background: rgba(166, 83, 40, 0.14);
+    border-radius: 50%;
+
+    font-size: 8px;
   }
 
   .booking__aside-bottom p {
-    font-size: 7.5px;
+    font-size: 6.8px;
 
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   /* ---------- FOOTER ---------- */
@@ -568,6 +617,10 @@
     font-size: 32px;
   }
 
+  .booking__aside-bottom p {
+    font-size: 6.4px;
+  }
+
   .booking__footer {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -580,7 +633,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .booking__action,
-  .booking__action strong {
+  .booking__action strong,
+  .booking__aside {
     transition: none;
   }
 }
