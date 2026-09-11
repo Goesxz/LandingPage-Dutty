@@ -130,101 +130,134 @@ function Gallery() {
             </div>
           </article>
 
-          {/* PORTRAIT */}
+          {/*
+            TRACK: no desktop/tablet vira "display: contents"
+            (some do fluxo — cada item continua sendo filho
+            direto do grid, como antes). No mobile vira um
+            carrossel horizontal de verdade.
+          */}
 
-          <article className="gallery__item gallery__item--portrait">
-            <GalleryPlaceholder item={galleryItems[1]} />
+          <div className="gallery__track-wrap">
+            <p className="gallery__track-hint" aria-hidden="true">
+              ARRASTE <span>→</span>
+            </p>
 
-            <div className="gallery__caption">
-              <div className="gallery__caption-top">
-                <span>{galleryItems[1].id}</span>
-                <span>{galleryItems[1].type}</span>
-              </div>
+            <div
+              className="gallery__track"
+              role="list"
+              aria-label="Mais momentos da galeria"
+            >
 
-              <div className="gallery__caption-bottom">
-                <div>
-                  <small>ARTISTA</small>
-                  <h3>{galleryItems[1].title}</h3>
+              {/* PORTRAIT */}
+
+              <article
+                className="gallery__item gallery__item--portrait"
+                role="listitem"
+              >
+                <GalleryPlaceholder item={galleryItems[1]} />
+
+                <div className="gallery__caption">
+                  <div className="gallery__caption-top">
+                    <span>{galleryItems[1].id}</span>
+                    <span>{galleryItems[1].type}</span>
+                  </div>
+
+                  <div className="gallery__caption-bottom">
+                    <div>
+                      <small>ARTISTA</small>
+                      <h3>{galleryItems[1].title}</h3>
+                    </div>
+
+                    <span className="gallery__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
                 </div>
+              </article>
 
-                <span className="gallery__arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </div>
-            </div>
-          </article>
+              {/* SQUARE */}
 
-          {/* SQUARE */}
+              <article
+                className="gallery__item gallery__item--square"
+                role="listitem"
+              >
+                <GalleryPlaceholder item={galleryItems[2]} />
 
-          <article className="gallery__item gallery__item--square">
-            <GalleryPlaceholder item={galleryItems[2]} />
+                <div className="gallery__caption">
+                  <div className="gallery__caption-top">
+                    <span>{galleryItems[2].id}</span>
+                    <span>{galleryItems[2].type}</span>
+                  </div>
 
-            <div className="gallery__caption">
-              <div className="gallery__caption-top">
-                <span>{galleryItems[2].id}</span>
-                <span>{galleryItems[2].type}</span>
-              </div>
+                  <div className="gallery__caption-bottom">
+                    <div>
+                      <small>BASTIDORES</small>
+                      <h3>{galleryItems[2].title}</h3>
+                    </div>
 
-              <div className="gallery__caption-bottom">
-                <div>
-                  <small>BASTIDORES</small>
-                  <h3>{galleryItems[2].title}</h3>
+                    <span className="gallery__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
                 </div>
+              </article>
 
-                <span className="gallery__arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </div>
-            </div>
-          </article>
+              {/* WIDE */}
 
-          {/* WIDE */}
+              <article
+                className="gallery__item gallery__item--wide"
+                role="listitem"
+              >
+                <GalleryPlaceholder item={galleryItems[3]} />
 
-          <article className="gallery__item gallery__item--wide">
-            <GalleryPlaceholder item={galleryItems[3]} />
+                <div className="gallery__caption">
+                  <div className="gallery__caption-top">
+                    <span>{galleryItems[3].id}</span>
+                    <span>{galleryItems[3].type}</span>
+                  </div>
 
-            <div className="gallery__caption">
-              <div className="gallery__caption-top">
-                <span>{galleryItems[3].id}</span>
-                <span>{galleryItems[3].type}</span>
-              </div>
+                  <div className="gallery__caption-bottom">
+                    <div>
+                      <small>PÚBLICO</small>
+                      <h3>{galleryItems[3].title}</h3>
+                    </div>
 
-              <div className="gallery__caption-bottom">
-                <div>
-                  <small>PÚBLICO</small>
-                  <h3>{galleryItems[3].title}</h3>
+                    <span className="gallery__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
                 </div>
+              </article>
 
-                <span className="gallery__arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </div>
-            </div>
-          </article>
+              {/* FINAL PORTRAIT (agora visível no carrossel mobile) */}
 
-          {/* FINAL PORTRAIT */}
+              <article
+                className="gallery__item gallery__item--last"
+                role="listitem"
+              >
+                <GalleryPlaceholder item={galleryItems[4]} />
 
-          <article className="gallery__item gallery__item--last">
-            <GalleryPlaceholder item={galleryItems[4]} />
+                <div className="gallery__caption">
+                  <div className="gallery__caption-top">
+                    <span>{galleryItems[4].id}</span>
+                    <span>{galleryItems[4].type}</span>
+                  </div>
 
-            <div className="gallery__caption">
-              <div className="gallery__caption-top">
-                <span>{galleryItems[4].id}</span>
-                <span>{galleryItems[4].type}</span>
-              </div>
+                  <div className="gallery__caption-bottom">
+                    <div>
+                      <small>LIVE</small>
+                      <h3>{galleryItems[4].title}</h3>
+                    </div>
 
-              <div className="gallery__caption-bottom">
-                <div>
-                  <small>LIVE</small>
-                  <h3>{galleryItems[4].title}</h3>
+                    <span className="gallery__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
                 </div>
+              </article>
 
-                <span className="gallery__arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </div>
             </div>
-          </article>
+          </div>
 
         </div>
 
@@ -260,4 +293,3 @@ function Gallery() {
 }
 
 export default Gallery
-

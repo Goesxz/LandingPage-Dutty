@@ -227,6 +227,19 @@
   display: none;
 }
 
+/*
+ * TRACK: em desktop/tablet o wrapper "desaparece" do
+ * fluxo (display: contents), então .gallery__item--portrait,
+ * --square e --wide continuam sendo filhos diretos do grid
+ * e respeitam as posições acima, exatamente como antes.
+ * Só no mobile (ver media query) isso vira um flex real.
+ */
+
+.gallery__track-wrap,
+.gallery__track {
+  display: contents;
+}
+
 
 /* =========================================================
    MEDIA PLACEHOLDER
@@ -692,7 +705,7 @@
 /* =========================================================
    MOBILE
    (redesigned for touch: bigger tap targets, always-visible
-   captions, centered snap carousel, progress dots, safe-area
+   captions, centered snap carousel with all 5 photos, safe-area
    aware spacing)
    ========================================================= */
 
@@ -786,13 +799,8 @@
 
   /* ---------- DEMAIS: carrossel horizontal com snap central ---------- */
 
-  .gallery__item--portrait,
-  .gallery__item--square,
-  .gallery__item--wide {
-    display: none; /* substituídos pelo track abaixo */
-  }
-
   .gallery__track-wrap {
+    display: block;
     position: relative;
 
     margin: 0 calc(-1 * var(--container-pad, 20px));
@@ -825,6 +833,11 @@
     pointer-events: none;
   }
 
+  /* item 5 volta a aparecer, agora dentro do carrossel */
+  .gallery__item--last {
+    display: block;
+  }
+
   .gallery__track .gallery__item {
     flex: 0 0 72vw;
     max-width: 300px;
@@ -836,14 +849,14 @@
     transition: transform 0.25s ease;
   }
 
-  /* dica visual de "arraste para o lado", só aparece se não
-     houver scroll ainda; reforça a affordance do carrossel */
+  /* dica visual de "arraste para o lado", reforça a
+     affordance do carrossel logo acima dele */
   .gallery__track-hint {
     display: flex;
     align-items: center;
     gap: 6px;
 
-    margin: 10px var(--container-pad, 20px) 0;
+    margin: 0 var(--container-pad, 20px) 10px;
 
     color: rgba(17, 17, 17, 0.4);
 
@@ -1004,5 +1017,24 @@
 
   .gallery__track-hint {
     font-size: 8.5px;
+  }
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__track-hint span {
+    animation: none;
+  }
+
+  .gallery__media,
+  .gallery__caption-top,
+  .gallery__caption-bottom,
+  .gallery__arrow,
+  .gallery__track .gallery__item,
+  .gallery__instagram b {
+    transition: none;
   }
 }
