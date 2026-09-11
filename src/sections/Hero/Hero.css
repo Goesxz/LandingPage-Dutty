@@ -1,8 +1,7 @@
 /* =========================================================
    HERO — Eduardo Henrique
-   A arte de hero-img.jpg já contém a tipografia e a direção
-   visual. O Hero adiciona somente navegação/CTA sem duplicar
-   elementos que já estão dentro da imagem.
+   Desktop: hero-img.jpg
+   Mobile: heroimg-celular.jpg
    ========================================================= */
 
 .hero {
@@ -22,11 +21,6 @@
   background: var(--hero-paper);
 }
 
-/*
- * A arte ocupa todo o Hero. Em telas largas ela é mantida no centro,
- * sem deformação. O object-position levemente acima evita cortar a
- * cabeça do artista quando a janela é mais alta que a arte.
- */
 .hero__art {
   position: absolute;
   inset: 0;
@@ -41,6 +35,12 @@
   background: var(--hero-paper);
 }
 
+.hero__art picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero__image {
   display: block;
 
@@ -52,16 +52,15 @@
   object-fit: cover;
   object-position: center center;
 }
-/*
- * Pequena proteção para a leitura do conteúdo externo do site.
- * Não cobre a arte com uma camada escura.
- */
+
+/* Proteção visual mínima */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
+
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.04),
@@ -71,15 +70,17 @@
   );
 }
 
-/*
- * Os CTAs ficam fora da fotografia visualmente: um pequeno bloco
- * editorial no rodapé. Assim eles não atravessam o rosto/corpo.
- */
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
 .hero__actions {
   position: absolute;
   z-index: 5;
+
   right: clamp(1.25rem, 3vw, 3.25rem);
   bottom: clamp(4rem, 7vw, 5.5rem);
+
   display: flex;
   align-items: stretch;
   gap: 0;
@@ -88,21 +89,30 @@
 .hero__action {
   min-width: clamp(11.5rem, 16vw, 14.5rem);
   min-height: 3.65rem;
+
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 1.5rem;
   padding: 0 1.2rem;
+
   border: 1px solid var(--hero-ink);
   border-radius: 0;
+
   text-decoration: none;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .hero__action--listen {
@@ -123,43 +133,62 @@
 
 .hero__action:hover {
   transform: translateY(-2px);
+
   background: var(--hero-ink);
   border-color: var(--hero-ink);
   color: #ffffff;
 }
 
-/* Linha de informação mínima no rodapé, sem competir com a arte. */
+/* =========================================================
+   RODAPÉ DO HERO
+   ========================================================= */
+
 .hero__footer {
   position: absolute;
   z-index: 4;
+
   left: clamp(1.25rem, 3vw, 3.25rem);
   bottom: clamp(1.25rem, 2.2vw, 1.8rem);
+
   display: flex;
   align-items: center;
+
   gap: 0.8rem;
+
   color: var(--hero-ink);
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.55rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   line-height: 1;
+
   mix-blend-mode: multiply;
 }
 
 .hero__rule {
   width: clamp(3rem, 8vw, 7rem);
   height: 1px;
+
   background: currentColor;
 }
 
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
 .sr-only {
   position: absolute;
+
   width: 1px;
   height: 1px;
+
   padding: 0;
   margin: -1px;
+
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+
   white-space: nowrap;
   border: 0;
 }
@@ -170,80 +199,99 @@
 }
 
 /* =========================================================
-   MOBILE / TABLET
-   Layout muda de "tudo sobreposto na foto" para uma pilha
-   vertical: foto (mais alta, menos cortada) → botões → info.
-   Nada fica mais escondido por cima da imagem.
+   TABLET / MOBILE
+   Usa heroimg-celular.jpg
    ========================================================= */
 
 @media (max-width: 900px) {
   .hero {
     min-height: auto;
-    overflow: visible;
 
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
   }
 
   .hero::after {
-    /* protegia legibilidade de texto sobre a foto; não é
-       mais necessário já que nada fica sobreposto na imagem */
     display: none;
   }
 
   .hero__art {
-    order: 1;
-
     position: relative;
     inset: auto;
+
+    order: 1;
+
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: auto;
+
+    aspect-ratio: 9 / 16;
+
+    overflow: hidden;
+  }
+
+  .hero__art picture {
+    width: 100%;
+    height: 100%;
   }
 
   .hero__image {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center center;
   }
 
   .hero__actions {
-    order: 2;
-
     position: relative;
+
     right: auto;
     bottom: auto;
+
+    order: 2;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     width: 100%;
   }
 
   .hero__action {
     min-width: 0;
     min-height: 3.6rem;
+
     padding-inline: 1rem;
   }
 
   .hero__footer {
-    order: 3;
-
     position: relative;
+
     left: auto;
     bottom: auto;
 
+    order: 3;
+
     width: 100%;
+
     justify-content: center;
 
     padding: 14px clamp(1rem, 4vw, 1.75rem);
 
     background: var(--hero-paper);
+
     mix-blend-mode: normal;
   }
 }
 
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
 @media (max-width: 560px) {
   .hero__art {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 9 / 16;
   }
 
   .hero__actions {
@@ -262,10 +310,13 @@
 
   .hero__footer {
     padding: 12px 1rem;
-
     font-size: 0.5rem;
   }
 }
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .hero__action {
@@ -276,3 +327,4 @@
     transform: none;
   }
 }
+
