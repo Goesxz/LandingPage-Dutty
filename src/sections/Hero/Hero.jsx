@@ -1,3 +1,4 @@
+import heroImg from '../../assets/images/hero-img.jpg'
 import './Hero.css'
 
 function Hero() {
@@ -8,13 +9,13 @@ function Hero() {
       </h1>
 
       <div className="hero__art" aria-hidden="true">
-        <img
-          className="hero__image"
-          src="/src/assets/images/hero-img.jpg"
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-        />
+      <img
+  className="hero__image"
+  src={heroImg}
+  alt=""
+  fetchPriority="high"
+  decoding="async"
+/>
       </div>
 
       <div className="hero__actions" aria-label="Ações principais">

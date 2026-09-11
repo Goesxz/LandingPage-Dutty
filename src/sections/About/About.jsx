@@ -1,3 +1,4 @@
+import imgabout from '../../assets/images/imgabout.jpg'
 import { useEffect, useRef } from 'react'
 import './About.css'
 
@@ -66,11 +67,11 @@ function About() {
 
         <div className="about__editorial">
           <figure className="about__photo reveal">
-            <div
-              className="about__photo-media"
-              role="img"
-              aria-label="Eduardo Henrique cantando e tocando violão em uma composição artística com pequenos personagens ao redor"
-            />
+            <img
+  className="about__photo-media"
+  src={imgabout}
+  alt="Eduardo Henrique"
+/>
 
             <div className="about__photo-texture" aria-hidden="true"></div>
 

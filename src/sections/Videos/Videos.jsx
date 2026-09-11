@@ -1,3 +1,6 @@
+import videoAoVivo from '../../assets/videos/videoaovivo.mp4'
+import somMaisUmPagode from '../../assets/videos/somaisumpagode.mp4'
+import videoAcustico from '../../assets/videos/videoacustico.mp4'
 import './Videos.css'
 
 const videos = [
@@ -5,26 +8,32 @@ const videos = [
     id: '01',
     category: 'SHOW AO VIVO',
     title: 'Eduardo Henrique ao vivo',
-    src: '/src/assets/videos/videoaovivo.mp4',
+    src: videoAoVivo,
     featured: true,
   },
   {
     id: '02',
     category: 'AUTORAL',
     title: 'Só Mais Um Pagode',
-    src: '/src/assets/videos/somaisumpagode.mp4',
+    src: somMaisUmPagode,
   },
   {
     id: '03',
     category: 'ACÚSTICO',
     title: 'Acústico',
-    src: '/src/assets/videos/videoacusticomp4.mp4',
+    src: videoAcustico,
   },
 ]
 
 function VideoReel({ video, featured = false }) {
   return (
-    <article className={`video-reel ${featured ? 'video-reel--featured' : 'video-reel--secondary'}`}>
+    <article
+      className={`video-reel ${
+        featured
+          ? 'video-reel--featured'
+          : 'video-reel--secondary'
+      }`}
+    >
       <div className="video-reel__media">
         <video
           className="video-reel__video"
@@ -43,10 +52,19 @@ function VideoReel({ video, featured = false }) {
 
         <div className="video-reel__bottom">
           <div>
-            <span className="video-reel__category">{video.category}</span>
+            <span className="video-reel__category">
+              {video.category}
+            </span>
+
             <h3>{video.title}</h3>
           </div>
-          <span className="video-reel__arrow" aria-hidden="true">↗</span>
+
+          <span
+            className="video-reel__arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
         </div>
       </div>
     </article>
@@ -55,29 +73,44 @@ function VideoReel({ video, featured = false }) {
 
 function Videos() {
   return (
-    <section className="videos section" id="videos">
-      <div className="videos__background" aria-hidden="true">
-        <span className="videos__background-word">REELS</span>
-        <span className="videos__background-line"></span>
+    <section
+      className="videos section"
+      id="videos"
+      aria-labelledby="videos-title"
+    >
+      <div
+        className="videos__background"
+        aria-hidden="true"
+      >
+        <span className="videos__background-word">
+          REELS
+        </span>
+
+        <span className="videos__background-line" />
       </div>
 
       <div className="container videos__container">
         <header className="videos__header">
           <div className="videos__heading">
             <div className="section-label">
-              <span></span>
+              <span />
               REELS
             </div>
 
-            <h2>
+            <h2 id="videos-title">
               A ENERGIA
               <br />
-              <strong>DE QUEM VIVE O PAGODE.</strong>
+              <strong>
+                DE QUEM VIVE O PAGODE.
+              </strong>
             </h2>
           </div>
 
           <div className="videos__intro">
-            <span className="videos__counter">03</span>
+            <span className="videos__counter">
+              03
+            </span>
+
             <p>
               Palco, música autoral e momentos acústicos.
               Um pouco do universo de Eduardo Henrique.
@@ -87,23 +120,33 @@ function Videos() {
 
         <div className="videos__content">
           <div className="videos__featured">
-            <VideoReel video={videos[0]} featured />
+            <VideoReel
+              video={videos[0]}
+              featured
+            />
           </div>
 
           <div className="videos__secondary">
             {videos.slice(1).map((video) => (
-              <VideoReel key={video.id} video={video} />
+              <VideoReel
+                key={video.id}
+                video={video}
+              />
             ))}
           </div>
         </div>
 
         <div className="videos__footer">
-          <div className="videos__footer-line"></div>
+          <div className="videos__footer-line" />
+
           <span>CONTEÚDO</span>
 
           <a href="#redes">
             <span>Ver mais no Instagram</span>
-            <strong aria-hidden="true">↗</strong>
+
+            <strong aria-hidden="true">
+              ↗
+            </strong>
           </a>
         </div>
       </div>
@@ -112,3 +155,4 @@ function Videos() {
 }
 
 export default Videos
+
