@@ -36,28 +36,34 @@ function Hero() {
         </picture>
       </div>
 
-      <div
+      <nav
         className="hero__actions"
         aria-label="Ações principais"
       >
-        <a
-          href="#musica"
-          className="hero__action hero__action--listen"
-        >
-          <span>Ouça agora</span>
-          <span aria-hidden="true">↗</span>
-        </a>
+        <ul className="hero__actions-list">
+          <li>
+            <a
+              href="#musica"
+              className="hero__action hero__action--listen"
+            >
+              <span>Ouça agora</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
 
-        <a
-          href="#contrate"
-          className="hero__action hero__action--book"
-        >
-          <span>Contrate o artista</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-      </div>
+          <li>
+            <a
+              href="#contrate"
+              className="hero__action hero__action--book"
+            >
+              <span>Contrate o artista</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <div
+      <footer
         className="hero__footer"
         aria-hidden="true"
       >
@@ -70,7 +76,7 @@ function Hero() {
         <span className="hero__scroll">
           ROLE PARA EXPLORAR
         </span>
-      </div>
+      </footer>
     </section>
   )
 }

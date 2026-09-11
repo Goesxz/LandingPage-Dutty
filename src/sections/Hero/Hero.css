@@ -5,9 +5,17 @@
    ========================================================= */
 
 .hero {
+  /* cores */
   --hero-ink: #111111;
   --hero-paper: #e8eceb;
   --hero-red: #b83b20;
+
+  /* espaçamento — tudo fluido via clamp(), um lugar só
+     pra ajustar o "respiro" da seção inteira */
+  --hero-edge: clamp(1.25rem, 3vw, 3.25rem);
+  --hero-actions-offset: clamp(4rem, 7vw, 5.5rem);
+  --hero-footer-offset: clamp(1.25rem, 2.2vw, 1.8rem);
+  --hero-gap: 0.8rem;
 
   position: relative;
   width: 100%;
@@ -20,6 +28,10 @@
   isolation: isolate;
   background: var(--hero-paper);
 }
+
+/* =========================================================
+   ARTE / IMAGEM
+   ========================================================= */
 
 .hero__art {
   position: absolute;
@@ -53,7 +65,7 @@
   object-position: center center;
 }
 
-/* Proteção visual mínima */
+/* Proteção visual mínima sobre a imagem */
 .hero::after {
   content: '';
   position: absolute;
@@ -72,18 +84,31 @@
 
 /* =========================================================
    AÇÕES
+   .hero__actions cuida do posicionamento (nav);
+   .hero__actions-list cuida do layout dos itens (ul).
    ========================================================= */
 
 .hero__actions {
   position: absolute;
   z-index: 5;
 
-  right: clamp(1.25rem, 3vw, 3.25rem);
-  bottom: clamp(4rem, 7vw, 5.5rem);
+  right: var(--hero-edge);
+  bottom: var(--hero-actions-offset);
+}
 
+.hero__actions-list {
   display: flex;
   align-items: stretch;
   gap: 0;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.hero__actions-list li {
+  display: flex;
 }
 
 .hero__action {
@@ -93,6 +118,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
 
   gap: 1.5rem;
   padding: 0 1.2rem;
@@ -147,13 +174,13 @@
   position: absolute;
   z-index: 4;
 
-  left: clamp(1.25rem, 3vw, 3.25rem);
-  bottom: clamp(1.25rem, 2.2vw, 1.8rem);
+  left: var(--hero-edge);
+  bottom: var(--hero-footer-offset);
 
   display: flex;
   align-items: center;
 
-  gap: 0.8rem;
+  gap: var(--hero-gap);
 
   color: var(--hero-ink);
 
@@ -201,6 +228,7 @@
 /* =========================================================
    TABLET / MOBILE
    Usa heroimg-celular.jpg
+   Layout empilhado: imagem → ações → rodapé.
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -226,7 +254,14 @@
     width: 100%;
     height: auto;
 
-    aspect-ratio: 9 / 16;
+    /*
+     * Proporção moderada aqui (só isso, não o 9/16 vertical
+     * de "story") — antes o 9/16 começava já em 900px e
+     * deixava a imagem gigante (até 1600px de altura numa
+     * tela de tablet). O 9/16 fica reservado só pro celular
+     * de fato, ver media query abaixo.
+     */
+    aspect-ratio: 4 / 5;
 
     overflow: hidden;
   }
@@ -252,6 +287,10 @@
 
     order: 2;
 
+    width: 100%;
+  }
+
+  .hero__actions-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -291,10 +330,12 @@
 
 @media (max-width: 560px) {
   .hero__art {
+    /* proporção bem vertical (tipo story), usando a
+       imagem recortada especificamente pro celular */
     aspect-ratio: 9 / 16;
   }
 
-  .hero__actions {
+  .hero__actions-list {
     grid-template-columns: 1fr;
   }
 
