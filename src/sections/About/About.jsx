@@ -1,5 +1,5 @@
-import imgabout from '../../assets/images/imgabout.jpg'
 import { useEffect, useRef } from 'react'
+import imgabout from '../../assets/images/imgabout.jpg'
 import './About.css'
 
 function About() {
@@ -49,13 +49,13 @@ function About() {
     >
       <div className="about__background" aria-hidden="true">
         <span className="about__background-word">HISTÓRIA</span>
-        <span className="about__background-line"></span>
+        <span className="about__background-line" />
       </div>
 
       <div className="container about__container">
         <header className="about__masthead reveal">
           <div className="section-label">
-            <span></span>
+            <span />
             SOBRE O ARTISTA
           </div>
 
@@ -68,19 +68,27 @@ function About() {
         <div className="about__editorial">
           <figure className="about__photo reveal">
             <img
-  className="about__photo-media"
-  src={imgabout}
-  alt="Eduardo Henrique"
-/>
+              className="about__photo-media"
+              src={imgabout}
+              alt="Eduardo Henrique"
+              loading="lazy"
+              decoding="async"
+            />
 
-            <div className="about__photo-texture" aria-hidden="true"></div>
+            <div
+              className="about__photo-texture"
+              aria-hidden="true"
+            />
 
             <figcaption className="about__photo-caption">
               <span>EDUARDO HENRIQUE</span>
               <span>CANTOR • COMPOSITOR</span>
             </figcaption>
 
-            <span className="about__photo-number" aria-hidden="true">
+            <span
+              className="about__photo-number"
+              aria-hidden="true"
+            >
               01
             </span>
           </figure>
@@ -164,7 +172,10 @@ function About() {
             <span className="about__marks-index">04</span>
 
             <div>
-              <span className="about__marks-kicker">MARCA</span>
+              <span className="about__marks-kicker">
+                MARCA
+              </span>
+
               <h3>O QUE MOVE O SOM.</h3>
             </div>
           </div>
@@ -195,7 +206,11 @@ function About() {
         <div className="about__cta reveal">
           <a href="#musica">
             <span>CONHEÇA O SOM</span>
-            <strong>Ouvir a música do Eduardo</strong>
+
+            <strong>
+              Ouvir a música do Eduardo
+            </strong>
+
             <b aria-hidden="true">↗</b>
           </a>
         </div>
@@ -205,3 +220,4 @@ function About() {
 }
 
 export default About
+
