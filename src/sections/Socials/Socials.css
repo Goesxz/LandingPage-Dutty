@@ -709,18 +709,9 @@
 
 /* =========================================
    MOBILE
-   Layout dos cards muda de "grid de cards
-   grandes" para "lista de linhas" (ícone +
-   texto + seta), que funciona melhor pra
-   escanear e tocar no celular.
 ========================================= */
 
 @media (max-width: 650px) {
-
-  .socials__background-word,
-  .socials__background-number {
-    display: none;
-  }
 
   .socials__header {
     gap: 28px;
@@ -756,148 +747,52 @@
     line-height: 1.65;
   }
 
-  /* grid vira lista vertical de linhas */
   .socials__grid {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    margin-top: 20px;
+    grid-template-columns: 1fr;
   }
 
   .social-card,
   .social-card--featured {
     grid-column: auto;
 
-    flex-direction: row;
-
-    align-items: center;
-
-    justify-content: flex-start;
-
-    min-height: 0;
-
-    gap: 16px;
-
-    padding: 16px;
+    min-height: 390px;
   }
 
   .social-card--featured {
-    background: #1f1f1f;
-
-    border-color: rgba(166, 83, 40, 0.45);
+    min-height: 450px;
   }
 
-  .social-card:active {
-    transform: scale(0.98);
-
-    border-color: rgba(166, 83, 40, 0.8);
-  }
-
-  /* número/tipo somem: sem espaço pra eles na linha compacta */
-  .social-card__top {
-    display: none;
-  }
-
-  .social-card__background::before {
-    width: 200px;
-    height: 200px;
-
-    right: -90px;
-    top: -80px;
-  }
-
-  .social-card__background::after {
-    width: 130px;
-    height: 130px;
-
-    right: -40px;
-    top: -30px;
-  }
-
-  .social-card__background span {
-    display: none;
-  }
-
-  /* ícone sai do centro absoluto e vira o início da linha */
-  .social-card__visual {
-    position: static;
-
-    transform: none;
-
-    width: auto;
-    flex: 0 0 auto;
-
-    text-align: left;
+  .social-card {
+    padding: 24px;
   }
 
   .social-card__icon {
-    width: 56px;
-    height: 56px;
+    width: 92px;
+    height: 92px;
 
-    margin: 0;
-
-    font-size: 24px;
-  }
-
-  .social-card--featured .social-card__icon {
-    width: 64px;
-    height: 64px;
-
-    font-size: 28px;
-
-    border-color: #a65328;
-  }
-
-  .social-card__visual-word {
-    display: none;
-  }
-
-  .social-card__bottom {
-    flex: 1 1 auto;
-
-    min-width: 0;
-
-    align-items: center;
+    font-size: 40px;
   }
 
   .social-card__info > span {
-    margin-bottom: 4px;
-
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .social-card__info p {
-    max-width: none;
-
-    font-size: 10px;
-    line-height: 1.4;
-
-    overflow: hidden;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-  }
-
-  .social-card__arrow {
-    font-size: 20px;
+    max-width: 230px;
   }
 
   .socials__closing {
     grid-template-columns: 1fr;
 
-    gap: 20px;
+    gap: 28px;
 
     min-height: 0;
 
-    padding: 28px 24px;
+    padding: 30px;
   }
 
   .socials__closing-link {
-    grid-column: 2;
+    grid-column: auto;
 
     width: 100%;
 
@@ -924,7 +819,7 @@
 @media (max-width: 420px) {
 
   .socials__heading h2 {
-    font-size: 34px;
+    font-size: 40px;
   }
 
   .socials__intro {
@@ -932,8 +827,8 @@
   }
 
   .socials__intro-mascot {
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
   }
 
   .socials__intro p {
@@ -942,37 +837,28 @@
     line-height: 1.6;
   }
 
-  .social-card,
   .social-card--featured {
-    padding: 14px;
-
-    gap: 12px;
+    min-height: 410px;
   }
 
-  .social-card__icon {
-    width: 48px;
-    height: 48px;
-
-    font-size: 20px;
-  }
-
-  .social-card--featured .social-card__icon {
-    width: 54px;
-    height: 54px;
-
-    font-size: 22px;
+  .social-card {
+    min-height: 360px;
   }
 
   .social-card__info > span {
-    font-size: 14px;
+    font-size: 17px;
+  }
+
+  .social-card__bottom {
+    gap: 12px;
   }
 
   .socials__closing {
-    padding: 22px 20px;
+    padding: 24px;
   }
 
   .socials__closing-copy h3 {
-    font-size: 26px;
+    font-size: 29px;
   }
 
   .socials__footer {
@@ -991,23 +877,35 @@
 @media (max-width: 360px) {
 
   .socials__heading h2 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
-  .social-card,
+  .socials__intro-mascot {
+    width: 46px;
+    height: 46px;
+  }
+
+  .socials__intro p {
+    font-size: 10px;
+  }
+
+  .social-card {
+    padding: 20px;
+  }
+
   .social-card--featured {
-    padding: 12px;
+    min-height: 390px;
   }
 
   .social-card__icon {
-    width: 42px;
-    height: 42px;
+    width: 82px;
+    height: 82px;
 
-    font-size: 18px;
+    font-size: 36px;
   }
 
   .socials__closing {
-    padding: 18px;
+    padding: 20px;
   }
 }
 
@@ -1027,4 +925,3 @@
     transition: none;
   }
 }
-
